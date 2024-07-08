@@ -10,9 +10,9 @@ export default function NewsCard({ news }) {
   const { title, author, urlToImage, description, url } = news;
 
   return (
-    <div className="h-fit m-2 p-6 font-serif hover:bg-[beige]">
-      <div className="text-2xl mb-4">{title}</div>
-      <div className="mb-2">
+    <div className="h-fit sm:w-[520px] w-[330px] rounded-xl m-2 p-6 font-serif hover:bg-[beige]">
+      <div className="sm:text-2xl text-md mb-4">{title}</div>
+      <div className="mb-2 sm:text-md text-sm">
         {author ? <div>Author: {author}</div> : <div>Author: Anonymous</div>}
       </div>
       <div className="">
@@ -30,11 +30,11 @@ export default function NewsCard({ news }) {
           <div>No image available</div>
         )}
       </div>
-      <div className="my-2">{description}</div>
+      <div className="my-2 sm:text-lg text-sm">{description}</div>
       <Link href={url} className="">
-        <div className="">
-          <button className="readmore-btn">
-            <span className="book-wrapper">
+        <div className="mt-4">
+          <button className="readmore-btn sm:h-[55px] h-[35px]">
+            <span className="book-wrapper sm:w-[45px] w-[30px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="rgb(86, 69, 117)"
@@ -108,7 +108,7 @@ export default function NewsCard({ news }) {
                 ></path>
               </svg>
             </span>
-            <span className="text">Read more</span>
+            <span className="text text-sm ml-2">Read more</span>
           </button>
         </div>
       </Link>

@@ -44,7 +44,7 @@ const workingStepsContent = [
   const servicesList = ["service1","service2"]
   const AboutList = []
   const ContactList = []
-  const resourcesList = ['news','res2']
+  const resourcesList = ['news','professionals']
 
   export {
     servicesList,

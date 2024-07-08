@@ -64,6 +64,10 @@ export default function Navbar() {
     };
   }, []);
 
+  const handleSubNavClick = () => {
+    setActiveList(null);
+  };
+
   return (
     <>
       <div className="container-style items-center justify-center lg:flex hidden pt-2 px-[200px]">
@@ -112,7 +116,7 @@ export default function Navbar() {
                     (nav === 'Resources' && resourcesList.length > 0)) && (
                     <div
                       ref={(el) => (dropdownRefs.current[id] = el)}
-                      className={`absolute top-[45px] bg-[#FFFFFF] rounded-[10px] w-[200px] p-[8px] shadow-[2px_2px_4px_0px_rgba(0,0,0,0.15)] ${
+                      className={`absolute top-[30px] bg-[#FFFFFF] rounded-[10px] w-[200px] p-[8px] shadow-[2px_2px_4px_0px_rgba(0,0,0,0.15)] ${
                         activeList === id ? 'block' : 'hidden'
                       }`}
                       onMouseEnter={() => handleDropdownMouseEnter(id)}
@@ -123,14 +127,16 @@ export default function Navbar() {
                         nav === 'Contact Us' ? ContactList :
                         nav === 'Resources' ? resourcesList : []
                       ).map((subNav, subId) => (
-                        <div key={subId} className="group bg-[#FFFFFF] hover:bg-[#EBF4FF] rounded-[10px] text-header-mobile-sb p-[16px] cursor-pointer">
-                          <Link
-                            href={subNav.toLowerCase().replace(/ /g, '')}
-                            className="text-[black] group-hover:text-[#0E72E8]"
-                          >
+                        <Link
+                          key={subId}
+                          href={subNav.toLowerCase().replace(/ /g, '')}
+                          className="text-[black] group-hover:text-[#0E72E8]"
+                          onClick={handleSubNavClick}
+                        >
+                          <div  className="group bg-[#FFFFFF] hover:bg-[#477ec1] rounded-[10px] text-header-mobile-sb p-[16px] cursor-pointer">
                             {subNav}
-                          </Link>
-                        </div>
+                          </div>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -231,6 +237,7 @@ export default function Navbar() {
                 <Link
                   href={subNav.toLowerCase().replace(/ /g, '')}
                   className="text-[black] hover:text-[#0E72E8]"
+                  onClick={handleSubNavClick}
                 >
                   {subNav}
                 </Link>
